@@ -3,12 +3,21 @@ import {View, Text,StyleSheet, TouchableOpacity,Image, TextInput} from 'react-na
 import Color from '../res/Color'
 import R from '../res/R'
 
-const CustomSearchBar = () => {
+const CustomSearchBar = (props) => {
+    const {
+       searchIcon,
+       searchText,
+       backgroundColor,
+       placeholderTxt,
+       inactiveSearch,
+       onSearchText
+
+      } = props;
     return(
 <>
-  <View style={{ backgroundColor:Color.goldenDeepgit }}>
+  <View style={{  }}>
 
-    <View style={[styles.homeSearchView, { marginVertical: 10 }]}>
+    <View style={[{backgroundColor: inactiveSearch ? R.color.goldenDeep : R.color.white},styles.homeSearchView, { marginVertical: 10 }]}>
     <TouchableOpacity
         style={{ }}
         onPress={() => {
@@ -18,9 +27,10 @@ const CustomSearchBar = () => {
         }}
         
       >
-        {/* <Image
-          style={{width:25,height:25 }}
-        /> */}
+        <Image
+        source={R.image.seachIcon()}
+          style={styles.searchIcon}
+        />
       </TouchableOpacity>
       <TextInput
         allowFontScaling={false}
@@ -29,9 +39,10 @@ const CustomSearchBar = () => {
         placeholderTextColor="white"
         underlineColorAndroid="transparent"
         style={styles.homeSearchText}
-        placeholder="Search any Keywords"
+        placeholder={placeholderTxt}
         returnKeyType="search"
-        onChangeText={text => (searchText = text)}
+        // onChangeText={text => (searchText = text)}
+        onChangeText={props.onSearchText}
         
       />
       
@@ -54,25 +65,27 @@ const styles = StyleSheet.create({
     container:{},
     homeSearchView: {
         // marginBottom: Platform.OS === 'ios' ? 20 : 25,
-        borderRadius: 10,
+        borderRadius:R.unit.scale(2),
         backgroundColor:Color.goldenDeep,
         height: (40),
         alignItems: "center",
         justifyContent: 'space-evenly',
         flexDirection: 'row',
-        marginHorizontal: 20,
+        marginHorizontal:R.unit.scale(10),
     
     },
     homeSearchText: {
-        // color: 'black',
-        // flex: 2,
-        // width: "80%",
         fontSize: (16),
         backgroundColor:Color.goldenDeep,
         marginHorizontal: (10),
         paddingVertical: (5),
         
     },
+    searchIcon:{
+        width:R.unit.scale(10),
+        height:R.unit.scale(10),
+        left:R.unit.scale(20)
+    }
 })
 
 export default CustomSearchBar
