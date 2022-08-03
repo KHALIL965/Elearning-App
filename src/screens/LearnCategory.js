@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -15,9 +15,14 @@ import {useNavigation} from '@react-navigation/native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {Icon} from 'react-native-elements';
 
-const LearnCategory = props => {
+const LearnCategory = ({route}) => {
   const navigation = useNavigation();
+  const { categoryTitle } = route.params;
   const [filterData, setFilterData] = useState('')
+
+  useEffect(()=>{
+      console.log("LearnCategory>>>>>>>",categoryTitle)
+  },[])
   const categoryData = [
     {
       id: 0,
@@ -269,7 +274,7 @@ const LearnCategory = props => {
         <CustomHeaderWhite
           hideBackButton={true}
           humberger={true}
-          Title={'Anatomy'}
+          Title={categoryTitle}
           headerTitles={true}
         />
         {/* <TouchableOpacity  onPress={()=>alert("filterData")}style={{justifyContent:'flex-end',left:R.unit.scale(170)}}>

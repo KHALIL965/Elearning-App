@@ -60,7 +60,6 @@ const Search = props => {
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image source={R.image.backIcon()} style={styles.backIcon} />
         </TouchableOpacity>
-
         <CustomSearchBar
           inactive={R.color.white}
           placeholderTxt={'          Search    '}
@@ -74,7 +73,6 @@ const Search = props => {
               data={searchData}
               horizontal={true}
               showsHorizontalScrollIndicator={false}
-              // numColumns={2}
               style={{flex: 1}}
               renderItem={item => _renderCategoryTitle(item)}
               keyExtractor={item => item.id}

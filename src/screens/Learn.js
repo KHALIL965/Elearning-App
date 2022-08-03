@@ -46,7 +46,7 @@ const Learn = props => {
         <View style={styles.cardContainer}>
           <TouchableOpacity
             style={styles.cardStyle}
-            onPress={() => navigation.navigate('LearnCategory')}>
+            onPress={() => navigation.navigate('LearnCategory',{categoryTitle:item.title})}>
             <Image source={item.titlesImage} style={styles.cardImages} />
           </TouchableOpacity>
           <View style={styles.titleStyle}>
