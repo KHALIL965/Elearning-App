@@ -1,79 +1,136 @@
-import React from 'react'
-import {StyleSheet,View, Text, SafeAreaView, FlatList, Image, TouchableOpacity} from 'react-native'
-import { CustomHeader } from '../components/CustomHeader'
-import CustomSearchBar from '../components/CustomSearchBar'
-import Color from '../res/Color'
-import R from '../res/R'
-
-const Learn= () => {
-
-    const Data = [
-        {
-            id: 1,
-            title: 'Anatomy',
-            image: require("../assets/images/bookmark.png"),
-         
-        },
-        {
-            id: 2,
-            title: 'Physiology',
-            image: require("../assets/images/bookmark.png"),
-         
-        },
-        {
-            id: 3,
-            title: 'Biochemistry',
-            image: require("../assets/images/bookmark.png"),
-        },
-        {
-            id: 4,
-            title: 'Practicals(1st year)',
-            image: require("../assets/images/bookmark.png"),
-        },
-    ]
-    const _renderTopics = ({item,index}) => {
-        console.log("Items>>>>>>>.",item,index);
-       <TouchableOpacity style={{}}>
-           <View stle={styles.cardImage}>
-               <Image source={item.image} style={styles.cardImages} />
-               <Text style={styles.titleTxt}>{item.title}</Text>
-           </View>
-       </TouchableOpacity>
-
-    }
-   return(
-        <SafeAreaView styles={styles.container}>
+import React, {useState} from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+  SafeAreaView,
+  ScrollView,
+  FlatList,
+  Image,
+  TouchableOpacity,
+  Dimensions,
+} from 'react-native';
+import {CustomHeader} from '../components/CustomHeader';
+import CustomSearchBar from '../components/CustomSearchBar';
+import R from '../res/R';
+import {useNavigation} from '@react-navigation/native';
+const {width, height} = Dimensions.get('window');
+const Learn = props => {
+  const navigation = useNavigation();
+  const [selectedItems, setSelectedItems] = useState('');
+  const Data = [
+    {
+      id: 1,
+      title: 'Anatomy',
+      titlesImage: require('../assets/images/bookmark.png'),
+    },
+    {
+      id: 2,
+      title: 'Physiology',
+      titlesImage: require('../assets/images/bookmark.png'),
+    },
+    {
+      id: 3,
+      title: 'Biochemistry',
+      titlesImage: require('../assets/images/bookmark.png'),
+    },
+    {
+      id: 4,
+      title: 'Practicals(1st year)',
+      titlesImage: require('../assets/images/bookmark.png'),
+    },
+  ];
+  const _renderTopics = ({item}) => {
+    return (
+      <View style={{paddingTop:R.unit.scale(10)}}>
+        <View style={styles.cardContainer}>
+          <TouchableOpacity
+            style={styles.cardStyle}
+            onPress={() => navigation.navigate('LearnCategory',{categoryTitle:item.title})}>
+            <Image source={item.titlesImage} style={styles.cardImages} />
+          </TouchableOpacity>
+          <View style={styles.titleStyle}>
+            <Text style={styles.titleTxt} numberOfLines={2}>
+              {item.title}
+            </Text>
+          </View>
+        </View>
+      </View>
+    );
+  };
+  return (
+    <SafeAreaView style={styles.container}>
+      <View>
         <CustomHeader
-                Title={'Learn'}
-                questionIcon={true}
-                headerTitles={true}
-                humberger={true}
+          Title={'MBBS 1st year'}
+          questionIcon={true}
+          headerTitles={true}
+          humberger={true}
+        />
+        <ScrollView showsVerticalScrollIndicator={false} styles={{flex: 1}}>
+          <TouchableOpacity onPress={() => navigation.navigate('Search')}>
+            <CustomSearchBar
+              placeholderTxt={'Search any Keywords'}
+              onSearchText={false}
             />
-             <CustomSearchBar />
-            <View style={styles.mainContainer}>
-            <FlatList
-                    data={Data}
-                    renderItem={(item,index) => _renderTopics(item, index)}
-                    keyExtractor={item => item.id}
-                />
-             </View> 
-        </SafeAreaView> 
-      
-   )
+          </TouchableOpacity>
 
-}
+          <View style={{}}>
+            <FlatList
+              data={Data}
+              numColumns={3}
+              renderItem={_renderTopics}
+              keyExtractor={item => item.id}
+            />
+          </View>
+        </ScrollView>
+      </View>
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        backgroundColor:Color.goldenDeep
-    },
-  
-    titleTxt:{
-        color:"black",
-        fontSize:R.unit.scale(20)
+  container: {
+    flex: 1,
+  },
 
+  titleTxt: {
+    color: R.color.black,
+    fontSize: R.unit.scale(8),
+    textAlign: 'center',
+  },
+  cardImages: {
+    width: R.unit.scale(30),
+    height: R.unit.scale(30),
+    padding: R.unit.scale(20),
+  },
+//   itemsCards: {
+//     justifyContent: 'space-between',
+//     alignItems: 'center',
+//     flexDirection: 'column',
+//     borderRadius: R.unit.scale(2),
+//     padding: R.unit.scale(5),
+//     width: R.unit.scale(50),
+//     shadowOffset: {width: 1, height: 1},
+//     shadowOpacity: 0.1,
+//     backgroundColor: R.color.white,
+//   },
+  cardStyle: {
+    backgroundColor: R.color.offWhite,
+    height: R.unit.scale(45),
+    width: R.unit.scale(48),
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginHorizontal: R.unit.scale(7),
+    borderRadius: R.unit.scale(2),
+    shadowRadius: R.unit.scale(3),
+    shadowOpacity: R.unit.scale(0.1),
+    shadowColor: R.color.white,
+    shadowOffset: {
+      width: 0,
+      height: 10,
     },
+<<<<<<< HEAD
     cardImage:{
         width:100,
         backgroundColor:'red',
@@ -89,3 +146,18 @@ const styles = StyleSheet.create({
     }
 })
 export default Learn;
+=======
+    elevation: 3,
+  },
+  titleStyle: {
+    width: R.unit.scale(50),
+    height: R.unit.scale(25),
+    justifyContent: 'center',
+  },
+  cardContainer: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+});
+export default Learn;
+>>>>>>> f68f2a18569c71ea0cb79c2d66d2bf537bff7baf

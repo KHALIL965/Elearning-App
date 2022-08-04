@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import React, { useEffect, useState,useRef } from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet, Platform, Dimensions } from 'react-native';
-// import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import R from '../res/R'
-import Color from '../res/Color';
-export const CustomHeader = (props) => {
+import Popover from 'react-native-popover-view';
+export const CustomHeaderWhite = (props) => {
   const {
     hideBackButton,
     hideArrowButton,
@@ -19,10 +20,31 @@ export const CustomHeader = (props) => {
   } = props;
 
   const [isModalVisible, setModalVisible] = useState(false);
-//   const navigation = useNavigation();
+  const navigation = useNavigation();
+  const touchable = useRef();
+  const [showPopover, setShowPopover] = useState(false)
 
   function backButton() {
     setModalVisible(true)
+  }
+
+  useEffect(() => {
+    setTimeout(() => setShowPopover(false), 2000);
+  }, []);
+  function  openFilter () {
+    return (
+        <Popover
+        isVisible={showPopover}
+        onRequestClose={() => setShowPopover(false)}
+        from={(
+          <TouchableOpacity onPress={() => setShowPopover(true)}>
+            <Text>Press here to open popover!</Text>
+          </TouchableOpacity>
+        )}>
+        <Text>This popover will be dismissed automatically after 2 seconds</Text>
+      </Popover>
+  
+      );
   }
 
   return (
@@ -41,12 +63,12 @@ export const CustomHeader = (props) => {
       )}
       {hideBackButton && (
         <TouchableOpacity
-        //   onPress={onPress}
+        onPress={() => navigation.goBack()}
         >
           <View>
-            {/* <Image
-              source={R.image.LeftArrowIcon()} style={styles.imageStyle}
-            /> */}
+            <Image
+              source={R.image.backIcon()} style={styles.imageStyle}
+            />
           </View>
         </TouchableOpacity>
       )}
@@ -54,11 +76,11 @@ export const CustomHeader = (props) => {
         <TouchableOpacity
         //  onPress={() => navigation.goBack()}
          >
-          <View>
-            {/* <Image
+          {/* <View>
+            <Image
               source={R.image.LeftArrowIcon()} style={styles.imageStyle}
-            /> */}
-          </View>
+            />
+          </View> */}
         </TouchableOpacity>
       )}
       {questionIcon && (
@@ -80,7 +102,7 @@ export const CustomHeader = (props) => {
         <Text style={styles.textStyles}>{'ProfileIcon'}</Text>
       )}
       {headerTitles && (
-        <View styl={styles.textView}>
+        <View style={styles.textView}>
           <Text style={styles.headerTitle}>{Title}</Text>
         </View>
       )}
@@ -89,20 +111,20 @@ export const CustomHeader = (props) => {
         // onPress={onPress}
         >
           <View>
-            {/* <Image
-              style={{ tintColor: R.color.white }}
-              source={R.image.crossIcon()}
-            /> */}
+            <Image
+              style={{ tintColor: R.color.white,width:R.unit.scale(10),height:R.unit.scale(7) }}
+              source={R.image.backIcon()}
+            />
           </View>
         </TouchableOpacity>
       )}
       {humberger && (
         <TouchableOpacity
           activeOpacity={1}
-        //   onPress={() => navigation.openDrawer()}
+        //   onPress={() =>openFilter()}
+        onPress={()=>alert("SubCategory list!!!!")}
         >
           <View>
-            
             <Image
               style={{ width:20,height:20 }}
               source={R.image.bookmark()}
@@ -123,7 +145,7 @@ const styles = StyleSheet.create({
     position: "relative",
     padding: R.unit.scale(5),
     zIndex: 1,
-    backgroundColor:R.color.goldenDeep,
+    backgroundColor:R.color.offWhite,
     height: R.unit.scale(30),
     paddingHorizontal: R.unit.scale(10)
   },
@@ -164,13 +186,14 @@ const styles = StyleSheet.create({
   },
   imageStyle: {
     tintColor: R.color.white,
+    width: R.unit.scale(10),
+    height: R.unit.scale(7),
   },
   hideSignUpContainer: {
     justifyContent: 'center',
     alignItems: 'center'
   },
   headerTitle: {
-    // fontFamily: R.font.FONT_GILROY_MEDIUM,
     fontSize: R.unit.scale(8),
     // lineHeight: R.unit.scale(12),
     // letterSpacing: R.unit.scale(0.15),
@@ -208,6 +231,6 @@ const styles = StyleSheet.create({
   textView: {
     alignItems:'flex-start',
     justifyContent:'flex-start',
-    right:R.unit.scale(100)
+    right:R.unit.scale(45)
   }
 })
