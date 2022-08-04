@@ -6,10 +6,10 @@ import CustomScoreCard from '../components/CustomScoreCard';
 import { useNavigation } from '@react-navigation/native';
  
 const ScoreCard = () => {
-    //const navigation = useNavigation()
+    const navigation = useNavigation()
     return (
         <SafeAreaView>
-        <ScrollView>
+        <ScrollView  showsVerticalScrollIndicator={false}>
             <View style={styles.scoreContainer}>
                 <Text style={styles.scoreText} >You Scored</Text>
                 <View style={styles.card}>
@@ -53,12 +53,13 @@ const ScoreCard = () => {
                 
                <View style = {styles.container}>
                        <TouchableOpacity 
-                    //    onPress={()=>navigation.navigate('Learn')}
+                      
+                       onPress={()=>navigation.goBack()}
                        >
                           <Text style={styles.exitButton}>EXIT</Text>
                         </TouchableOpacity>
                         <TouchableOpacity 
-                        //  onPress={()=>navigation.goBack()}
+                         onPress={()=>navigation.navigate('Learn')}
                          >
                             <Text style={styles.reviewButton}>REVIEW</Text>
                         </TouchableOpacity>
