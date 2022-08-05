@@ -47,14 +47,13 @@ const CustomSearchBar = (props) => {
       />
       
     </View>
-    {/* <View
+    <View
       style={{
-        // backgroundColor: "#f3f3f3",
         width: '100%',
         height: 1,
         marginTop: 2.5
       }}
-    /> */}
+    />
   </View>
 
 </>
@@ -62,7 +61,7 @@ const CustomSearchBar = (props) => {
 }
 
 const styles = StyleSheet.create({
-    container:{},
+   
     homeSearchView: {
         // marginBottom: Platform.OS === 'ios' ? 20 : 25,
         borderRadius:R.unit.scale(2),
@@ -84,7 +83,7 @@ const styles = StyleSheet.create({
     searchIcon:{
         width:R.unit.scale(10),
         height:R.unit.scale(10),
-        left:R.unit.scale(20)
+        paddingLeft:R.unit.scale(5)
     }
 })
 

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet, Platform, Dimensions } from 'react-native';
-// import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import R from '../res/R'
-import Color from '../res/Color';
 export const CustomHeader = (props) => {
   const {
     hideBackButton,
@@ -19,7 +18,7 @@ export const CustomHeader = (props) => {
   } = props;
 
   const [isModalVisible, setModalVisible] = useState(false);
-//   const navigation = useNavigation();
+  const navigation = useNavigation();
 
   function backButton() {
     setModalVisible(true)
@@ -99,7 +98,7 @@ export const CustomHeader = (props) => {
       {humberger && (
         <TouchableOpacity
           activeOpacity={1}
-        //   onPress={() => navigation.openDrawer()}
+          onPress={() => navigation.navigate('BookMarks')}
         >
           <View>
             

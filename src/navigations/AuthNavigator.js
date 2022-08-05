@@ -4,6 +4,7 @@ import Learn from '../screens/Learn';
 import Search from '../screens/Search';
 import LearnCategory from '../screens/LearnCategory';
 import CustomWebView from '../components/CustomWebView';
+import BookMarks from '../screens/BookMarks';
 
 
 const RootNavigator = createNativeStackNavigator();
@@ -29,6 +30,10 @@ export function RootStackNavigator() {
        <RootNavigator.Screen
         name="CustomWebView"
         component={CustomWebView}
+      />
+       <RootNavigator.Screen
+        name="BookMarks"
+        component={BookMarks}
       />
     
     </RootNavigator.Navigator>

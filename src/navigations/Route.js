@@ -1,6 +1,5 @@
 import React from 'react';
 import 'react-native-gesture-handler';
-import { useSelector } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar, View, Platform } from 'react-native';
 import { RootStackNavigator } from './AuthNavigator';
@@ -11,7 +10,6 @@ const Routes = () => {
 	return (
 		<NavigationContainer>
          <RootStackNavigator />
-			
 		</NavigationContainer>
 	);
 }

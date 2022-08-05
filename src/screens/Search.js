@@ -62,7 +62,7 @@ const Search = props => {
         </TouchableOpacity>
         <CustomSearchBar
           inactive={R.color.white}
-          placeholderTxt={'          Search    '}
+          placeholderTxt={'Search'}
         />
         <Text style={styles.backIcon}>Mic</Text>
       </View>
@@ -96,7 +96,8 @@ const styles = StyleSheet.create({
   },
   mainContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-around',
+    paddingHorizontal:R.unit.scale(10)
   },
   categoryTopicView: {
     // justifyContent: 'space-evenly',

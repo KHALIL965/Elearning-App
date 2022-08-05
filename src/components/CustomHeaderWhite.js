@@ -4,6 +4,7 @@ import { View, Text, TouchableOpacity, Image, StyleSheet, Platform, Dimensions }
 import { useNavigation } from '@react-navigation/native';
 import R from '../res/R'
 import Popover from 'react-native-popover-view';
+import { CustomFilter } from './CustomFilter';
 export const CustomHeaderWhite = (props) => {
   const {
     hideBackButton,
@@ -17,9 +18,12 @@ export const CustomHeaderWhite = (props) => {
     onPress,
     crossIcons,
     questionIcon,
+    humbergeronPress,
+    closeModal
   } = props;
 
   const [isModalVisible, setModalVisible] = useState(false);
+  const [subCategoryFilterData,setSubCategoryFilterData] = useState('')
   const navigation = useNavigation();
   const touchable = useRef();
   const [showPopover, setShowPopover] = useState(false)
@@ -28,24 +32,7 @@ export const CustomHeaderWhite = (props) => {
     setModalVisible(true)
   }
 
-  useEffect(() => {
-    setTimeout(() => setShowPopover(false), 2000);
-  }, []);
-  function  openFilter () {
-    return (
-        <Popover
-        isVisible={showPopover}
-        onRequestClose={() => setShowPopover(false)}
-        from={(
-          <TouchableOpacity onPress={() => setShowPopover(true)}>
-            <Text>Press here to open popover!</Text>
-          </TouchableOpacity>
-        )}>
-        <Text>This popover will be dismissed automatically after 2 seconds</Text>
-      </Popover>
-  
-      );
-  }
+
 
   return (
     <View style={styles.DashMainContainer}>
@@ -121,8 +108,7 @@ export const CustomHeaderWhite = (props) => {
       {humberger && (
         <TouchableOpacity
           activeOpacity={1}
-        //   onPress={() =>openFilter()}
-        onPress={()=>alert("SubCategory list!!!!")}
+        onPress={humbergeronPress}
         >
           <View>
             <Image
@@ -197,8 +183,9 @@ const styles = StyleSheet.create({
     fontSize: R.unit.scale(8),
     // lineHeight: R.unit.scale(12),
     // letterSpacing: R.unit.scale(0.15),
-    // textAlign: "center",
+    textAlign:'left',
     color: R.color.white,
+    // paddingLeft:R.unit.scale(25)
     // marginHorizontal: R.unit.scale(35)
   },
   textStyles: {
@@ -211,26 +198,9 @@ const styles = StyleSheet.create({
     margin: (3.2, 3),
     tintColor: 'red',
   },
-  imgNavBarInner: {
-    width: R.unit.scale(35),
-    height: R.unit.scale(35),
-    alignSelf: 'flex-end',
-  },
-  menu: {
-    position: 'absolute',
-    zIndex: 6,
-    elevation: 6,
-    flex: 1,
-    top: 0,
-    right: 0,
-    bottom: 0,
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
-    backgroundColor: R.color.smoothBlack
-  },
   textView: {
-    alignItems:'flex-start',
-    justifyContent:'flex-start',
-    right:R.unit.scale(45)
+    // alignItems:'stretch',
+    // justifyContent:'flex-start',
+    marginRight:R.unit.scale(40)
   }
 })
