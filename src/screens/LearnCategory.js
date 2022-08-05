@@ -17,6 +17,7 @@ import {Icon} from 'react-native-elements';
 import {CustomFilter} from '../components/CustomFilter';
 import CustomProgressBar from '../components/CustomProgressBar';
 
+
 const LearnCategory = ({route}) => {
   const navigation = useNavigation();
   const {categoryTitle} = route.params;
@@ -264,7 +265,7 @@ const LearnCategory = ({route}) => {
                     />
                   </View>
                   <View style={styles.txtProgress}>
-                    <Text style={styles.productText}>
+                    <Text  onPress={()=>navigation.navigate("Popup")}style={styles.productText}>
                       {optionItem.subCategoryTile}
                     </Text>
                     <View style={styles.progress}>

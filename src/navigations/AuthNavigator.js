@@ -1,5 +1,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import Popup from '../screens/Popup';
 import Learn from '../screens/Learn';
 import ScoreCard from '../screens/Scorecard';
 import Search from '../screens/Search';
@@ -14,13 +16,13 @@ export function RootStackNavigator() {
   return (
     <RootNavigator.Navigator
       initialRouteName={'Learn'}
-      screenOptions={{ headerShown: false}}
+      screenOptions={{ headerShown: false }}
     >
         <RootNavigator.Screen
         name="Learn"
         component={Learn}
       />
-        <RootNavigator.Screen
+      <RootNavigator.Screen
         name="Search"
         component={Search}
       />
@@ -35,11 +37,15 @@ export function RootStackNavigator() {
        <RootNavigator.Screen
         name="BookMarks"
         component={BookMarks}
-      />
+     />
     
     <RootNavigator.Screen
         name="Scorecard"
         component={ScoreCard}
+      />
+       <RootNavigator.Screen
+        name="Popup"
+        component={Popup}
       />
     </RootNavigator.Navigator>
   );
