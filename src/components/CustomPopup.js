@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 
 import {RadioButton} from 'react-native-paper';
+import R from '../res/R';
 
 const CustomPopup = (props, {navigation}) => {
   const [checked, setChecked] = React.useState('first');

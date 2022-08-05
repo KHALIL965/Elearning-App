@@ -130,23 +130,6 @@ const styles = StyleSheet.create({
       width: 0,
       height: 10,
     },
-<<<<<<< HEAD
-    cardImage:{
-        width:100,
-        backgroundColor:'red',
-        height:50,
-        readius:R.unit.scale(5)
-    },
-    mainContainer:{
-        backgroundColor:'red'
-    },
-    cardImages:{
-        width:20,
-        height:20
-    }
-})
-export default Learn;
-=======
     elevation: 3,
   },
   titleStyle: {
@@ -160,4 +143,3 @@ export default Learn;
   },
 });
 export default Learn;
->>>>>>> f68f2a18569c71ea0cb79c2d66d2bf537bff7baf

@@ -15,6 +15,7 @@ import {useNavigation} from '@react-navigation/native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {Icon} from 'react-native-elements';
 
+
 const LearnCategory = ({route}) => {
   const navigation = useNavigation();
   const { categoryTitle } = route.params;
@@ -214,7 +215,7 @@ const LearnCategory = ({route}) => {
             marginHorizontal: R.unit.scale(10),
             marginRight: R.unit.scale(10),
           }}
-          onPress={() => navigation.navigate('CustomWebView')}>
+           >
           <Text style={styles.categoryTxt}>{item.subCategoryTitle}</Text>
         </TouchableOpacity>
         {/* dottedCode */}
@@ -251,7 +252,7 @@ const LearnCategory = ({route}) => {
           >
           <Text style={{color:R.color.offWhite}}>{optionIndex}</Text>
           </View>
-                <Text style={styles.productText}>
+                <Text onPress={() => navigation.navigate('Popup')} style={styles.productText}>
                   {optionItem.subCategoryTile}
                 </Text>
               </View>
