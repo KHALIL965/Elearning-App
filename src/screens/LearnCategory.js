@@ -229,7 +229,7 @@ const LearnCategory = ({route}) => {
             marginHorizontal: R.unit.scale(10),
             marginRight: R.unit.scale(10),
           }}
-          onPress={() => navigation.navigate('CustomWebView')}>
+          onPress={() => navigation.navigate('Scorecard')}>
           <Text style={styles.categoryTxt}>{item.subCategoryTitle}</Text>
         </TouchableOpacity>
         {/* dottedCode */}
