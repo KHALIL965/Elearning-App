@@ -5,6 +5,7 @@ import ScoreCard from '../screens/Scorecard';
 import Search from '../screens/Search';
 import LearnCategory from '../screens/LearnCategory';
 import CustomWebView from '../components/CustomWebView';
+import CustomPagination from '../components/CustomPagination';
 
 
 const RootNavigator = createNativeStackNavigator();
@@ -35,6 +36,11 @@ export function RootStackNavigator() {
     <RootNavigator.Screen
         name="Scorecard"
         component={ScoreCard}
+      />
+
+    <RootNavigator.Screen
+        name="CustomPagination"
+        component={CustomPagination}
       />
     </RootNavigator.Navigator>
   );
