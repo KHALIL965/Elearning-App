@@ -14,14 +14,13 @@ import unit from '../res/unit';
 import R from '../res/R';
 import image from '../res/image';
 import Color from '../res/Color';
-// import CustomPageNavigation from '../components/CustomPageNavigation';
 import CustomPageNavigation from '../components/CustomPageNavigation';
 import LrnTab from '../Tabs/LearnTab';
 
 const LearnSubCategory = () => {
   return (
     <>
-      <View style={{flex:R.unit.scale(0.39)}}>
+      <View style={{flex: R.unit.scale(0.4)}}>
         <View style={style.circle}>
           <CircularProgress
             value={58}
@@ -64,7 +63,7 @@ const LearnSubCategory = () => {
       </View>
 
       <CustomPageNavigation>
-        <LrnTab/>
+        <LrnTab />
       </CustomPageNavigation>
     </>
   );
@@ -104,12 +103,5 @@ const style = StyleSheet.create({
     fontSize: R.unit.scale(8),
     fontWeight: 'bold',
   },
-  // navigate: {
-  //   bottom: R.unit.scale(200),
-  //   borderRadius: R.unit.scale(3),
-  //   borderWidth: R.unit.scale(1),
-  //   borderColor:R.color.goldenDeep,
-
-  // },
 });
 export default LearnSubCategory;

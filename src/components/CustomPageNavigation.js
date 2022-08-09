@@ -164,8 +164,7 @@ const categoryData = [
 
 function Organization() {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-   {/* <Text style={{justifyContent:"center"}}>Home!!</Text> */}
+    <View style={style.organization}>
    <LrnTab/>
     </View>
   );
@@ -173,13 +172,7 @@ function Organization() {
 function Individual() {
   return (
     <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 10,
-      }}>
-      {/* <Text>Test</Text> */}
+      style={style.individual}>
       <LrnTab/>
     </View>
   );
@@ -187,14 +180,8 @@ function Individual() {
 function Service() {
   return (
     <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 10,
-      }}>
-      {/* <Text>Activity</Text> */}
-      <LrnTab/>
+      style={style.service}>
+     <LrnTab/>
     </View>
   );
 }
@@ -225,6 +212,26 @@ const style = StyleSheet.create({
   ot1: {
     alignSelf: 'center',
     fontSize: 35,
+  },
+  organization:{
+    flex: 1,
+     justifyContent: 'center',
+     alignItems: 'center'
+
+  },
+  individual:{
+    flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10,
+
+  },
+  service:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+
   },
 });
 export default CustomPageNavigation;
