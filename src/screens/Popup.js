@@ -6,7 +6,6 @@ import {useNavigation} from '@react-navigation/native';
 
 
 
-
 const Popup=()=>{
   const [modalVisible, setModalVisible] = useState(false);
   const navigation = useNavigation();
