@@ -7,6 +7,9 @@ import ScoreCard from '../screens/Scorecard';
 import Search from '../screens/Search';
 import LearnCategory from '../screens/LearnCategory';
 import CustomWebView from '../components/CustomWebView';
+import LearnSubCategory from '../screens/LearnSubCategory';
+import LrnTab from '../Tabs/LearnTab';
+import TAB1 from '../Tabs/TestTab';
 import BookMarks from '../screens/BookMarks';
 
 
@@ -27,8 +30,20 @@ export function RootStackNavigator() {
         component={Search}
       />
       <RootNavigator.Screen
+        name="TAB1"
+        component={TAB1}
+      />
+      <RootNavigator.Screen
         name="LearnCategory"
         component={LearnCategory}
+      />
+      <RootNavigator.Screen
+        name="LearnSubCategory"
+        component={LearnSubCategory}
+      />
+      <RootNavigator.Screen
+        name="LrnTab"
+        component={LrnTab}
       />
        <RootNavigator.Screen
         name="CustomWebView"
@@ -47,6 +62,7 @@ export function RootStackNavigator() {
         name="Popup"
         component={Popup}
       />
+      
     </RootNavigator.Navigator>
   );
 }

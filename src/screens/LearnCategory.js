@@ -265,7 +265,7 @@ const LearnCategory = ({route}) => {
                     />
                   </View>
                   <View style={styles.txtProgress}>
-                    <Text  onPress={()=>navigation.navigate("Popup")}style={styles.productText}>
+                    <Text  onPress={()=>navigation.navigate("LearnSubCategory")}style={styles.productText}>
                       {optionItem.subCategoryTile}
                     </Text>
                     <View style={styles.progress}>

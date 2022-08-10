@@ -6,18 +6,14 @@ import {useNavigation} from '@react-navigation/native';
 
 
 
-
 const Popup=()=>{
-  const [modalVisible, setModalVisible] = useState(false);
+ 
   const navigation = useNavigation();
+  const[modalVisible,setModalVisible] = useState(false);
 
     return(
-        <CustomPopup visible={modalVisible} close={() => {
-            Alert.alert("Modal has been closed.");
-            setModalVisible(!modalVisible);
-          }}  press={() => setModalVisible(!modalVisible)}
-          press2={() => setModalVisible(true)}
-          >
+        <CustomPopup Nii={ modalVisible} >
+            
           </CustomPopup>
     );
 }
