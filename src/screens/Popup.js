@@ -18,7 +18,6 @@ const Popup=()=>{
           }}  press={() => setModalVisible(!modalVisible)}
           press2={() => setModalVisible(true)}
           >
-            
           </CustomPopup>
     );
 }

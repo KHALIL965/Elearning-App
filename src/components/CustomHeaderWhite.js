@@ -201,6 +201,6 @@ const styles = StyleSheet.create({
   textView: {
     // alignItems:'stretch',
     // justifyContent:'flex-start',
-    marginRight:R.unit.scale(40)
+    marginRight:R.unit.scale(80)
   }
 })

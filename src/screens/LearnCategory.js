@@ -220,9 +220,9 @@ const LearnCategory = ({route}) => {
   ];
 
   const _renderCategoryTopic = ({item}) => {
-    console.log('CategoryItems>>>>>>>', item.subCategoryTitle);
+    // console.log('CategoryItems>>>>>>>', item.subCategoryTitle);
     const filterData = item.subCategoryTitle;
-    console.log('FilterData_Save>>>>>', filterData);
+    // console.log('FilterData_Save>>>>>', filterData);
     return (
       <>
         <TouchableOpacity
@@ -424,6 +424,7 @@ const styles = StyleSheet.create({
     width: R.unit.scale(10),
     height: R.unit.scale(10),
     bottom: R.unit.scale(15),
+    // right:R.unit.scale(10)
   },
   txtFilter: {
     fontSiz: R.unit.scale(10),

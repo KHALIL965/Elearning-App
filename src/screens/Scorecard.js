@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet, ScrollView, Image, TouchableOpacity, SafeAreaView } from 'react-native';
 import R from '../res/R';
-import Color from '../res/Color';
 import CustomScoreCard from '../components/CustomScoreCard';
 import { useNavigation } from '@react-navigation/native';
  
@@ -53,7 +52,6 @@ const ScoreCard = () => {
                 
                <View style = {styles.container}>
                        <TouchableOpacity 
-                      
                        onPress={()=>navigation.goBack()}
                        >
                           <Text style={styles.exitButton}>EXIT</Text>
@@ -65,7 +63,6 @@ const ScoreCard = () => {
                         </TouchableOpacity>
                 </View>
         </ScrollView>
-       
         </SafeAreaView>
     )
 }
