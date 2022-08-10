@@ -3,23 +3,27 @@ import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native'
 import Dots from 'react-native-dots-pagination';
 import R from '../res/R';
 import Content from '../screens/Content';
-
+import { useNavigation } from '@react-navigation/native';
+ 
 
 const cancelImg = { uri : 'https://png.pngtree.com/png-vector/20190412/ourmid/pngtree-vector-cancel-icon-png-image_931207.jpg'}
 
 const CustomPagination = () => {
-
+    const navigation = useNavigation()
     const [active, setActive] = useState(0)
     const [pageNum,setPageNum] = useState(1)
     const [bookmarkState, setBookmarkState] = useState(false)
     const [tickState, setTickState] = useState(false)
-  
+    const [savedbookmark,setSavedbookmark]= useState([])
+    
     const prev = () => { 
         if(pageNum > 1){
             setPageNum(pageNum-1);
             setActive (active-1);
+            setBookmarkState(false);
+            setTickState(false)
         }
-        else if(pageNum==0){
+        else if(pageNum==1){
             setPageNum(1)
             setActive(0)
         }else{
@@ -28,13 +32,15 @@ const CustomPagination = () => {
       }
 
     const next = () => {      
-        if(pageNum < 20){
+        if(pageNum < 10){
             setActive (active+1);
             setPageNum(pageNum+1);
+            setBookmarkState(false);
+            setTickState(false)
         }
-        else if(pageNum == 20){
-            setPageNum(20)
-            setActive(19)
+        else if(pageNum == 10){
+            setPageNum(10)
+            setActive(9)
         }else{
           null
         }
@@ -60,18 +66,19 @@ const CustomPagination = () => {
 
     return(
         
-        <View style={{flex: 1, backgroundColor : R.color.SpanishGray}} >
+        <View style={{flex: 1, backgroundColor : R.color.goldenDeep}} >
           <View style = {styles.topContainer}>
             <View style = {{flexDirection : 'row', justifyContent : 'space-between'}}>
-               <Text style = {styles.pageNumText}> {pageNum} of 20</Text>
-                 <TouchableOpacity>
+               <Text style = {styles.pageNumText}> {pageNum} of 10 </Text>
+                 <TouchableOpacity  
+                    onPress={()=>navigation.navigate('Learn')}>
                     <Image
                         style = {styles.cancel}
                         source = {cancelImg} />
                  </TouchableOpacity>
             </View>  
              <View style = {styles.paginationStyle}>
-              <Dots length={20} active={active}  
+              <Dots length={10} active={active}  
                paddingHorizontal = {0}
                activeDotHeight = {10.5}
                activeDotWidth = {10.5}
@@ -81,7 +88,7 @@ const CustomPagination = () => {
             />
           </View>
           </View>
-          <Content page = 'Content Page'/>
+          <Content page = {"Page Number: "+pageNum} />
 
           <View style={styles.bottomContainer}>
             <View style={{flexDirection:"row"}}>

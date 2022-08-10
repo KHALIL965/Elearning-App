@@ -1,23 +1,24 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet,Image} from 'react-native'
 import R from '../res/R';
 
 const Content = (props) => {
-   return(
+   return(    
        <View style = {styles.container}>
-            <Text style = {styles.textStyle}> {props.page} !!</Text>
-       </View>
-   )
-}
+            <Text style = {styles.textStyle}>{props.page}</Text>
+            </View>   
+)}
+
 const styles = StyleSheet.create({
     container : {
         flex : 1,
-        justifyContent : 'center',
+        alignItems : 'center',
+        justifyContent : 'center'    
     },
     textStyle : {
-        fontSize : R.unit.scale(9),
+        fontSize : R.unit.scale(12),
         fontWeight : '600',
-        color : R.color.black
+        color : 'white',
     }
 })
 
