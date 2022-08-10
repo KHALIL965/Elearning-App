@@ -16,6 +16,8 @@ import {ScrollView} from 'react-native-gesture-handler';
 import {Icon} from 'react-native-elements';
 
 
+
+
 const LearnCategory = ({route}) => {
   const navigation = useNavigation();
   const { categoryTitle } = route.params;
@@ -252,7 +254,7 @@ const LearnCategory = ({route}) => {
           >
           <Text style={{color:R.color.offWhite}}>{optionIndex}</Text>
           </View>
-                <Text onPress={() => navigation.navigate('Popup')} style={styles.productText}>
+                <Text onPress={() => navigation.navigate('LearnSubCategory')} style={styles.productText}>
                   {optionItem.subCategoryTile}
                 </Text>
               </View>

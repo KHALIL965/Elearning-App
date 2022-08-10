@@ -9,15 +9,16 @@ import {
 
 import CircularProgress from 'react-native-circular-progress-indicator';
 import {TabView, SceneMap} from 'react-native-tab-view';
-import LearnCategory from './LearnCategory';
 import unit from '../res/unit';
 import R from '../res/R';
 import image from '../res/image';
 import Color from '../res/Color';
 import CustomPageNavigation from '../components/CustomPageNavigation';
 import LrnTab from '../Tabs/LearnTab';
+import { useNavigation } from '@react-navigation/native';
 
 const LearnSubCategory = () => {
+  const navigation = useNavigation();
   return (
     <>
       <View style={{flex: R.unit.scale(0.4)}}>

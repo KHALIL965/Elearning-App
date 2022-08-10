@@ -6,6 +6,9 @@ import Learn from '../screens/Learn';
 import Search from '../screens/Search';
 import LearnCategory from '../screens/LearnCategory';
 import CustomWebView from '../components/CustomWebView';
+import LearnSubCategory from '../screens/LearnSubCategory';
+import LrnTab from '../Tabs/LearnTab';
+import TAB1 from '../Tabs/TestTab';
 
 
 const RootNavigator = createNativeStackNavigator();
@@ -25,8 +28,20 @@ export function RootStackNavigator() {
         component={Search}
       />
       <RootNavigator.Screen
+        name="TAB1"
+        component={TAB1}
+      />
+      <RootNavigator.Screen
         name="LearnCategory"
         component={LearnCategory}
+      />
+      <RootNavigator.Screen
+        name="LearnSubCategory"
+        component={LearnSubCategory}
+      />
+      <RootNavigator.Screen
+        name="LrnTab"
+        component={LrnTab}
       />
        <RootNavigator.Screen
         name="CustomWebView"

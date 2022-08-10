@@ -14,7 +14,7 @@ import { useNavigation } from '@react-navigation/native';
 
 
 
-const LrnTab = () => {
+const TestTab = () => {
 
   const [filterData, setFilterData] = useState('')
   const navigation = useNavigation();
@@ -282,4 +282,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LrnTab;
+export default TestTab;

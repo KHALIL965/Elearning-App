@@ -15,13 +15,16 @@ import R from '../res/R';
 
 const CustomPopup = (props, {navigation}) => {
   const [checked, setChecked] = React.useState('first');
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.centeredView}>
       <Modal
         animationType="slide"
         transparent={true}
-        visible={props.visible}
-        onRequestClose={props.close}>
+        visible={props.Nii}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);}}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <View style={styles.head1}>
@@ -88,7 +91,7 @@ const CustomPopup = (props, {navigation}) => {
             <Text style={styles.modalText}>{props.text1}</Text>
             <Pressable
               style={[styles.button, styles.buttonClose]}
-              onPress={props.press}>
+              onPress={ () => setModalVisible(!modalVisible)}>
               <Text style={styles.textStyle}>START</Text>
             </Pressable>
           </View>
@@ -96,7 +99,7 @@ const CustomPopup = (props, {navigation}) => {
       </Modal>
       <Pressable
         style={[styles.button, styles.buttonOpen]}
-        onPress={props.press2}>
+        onPress={() => setModalVisible(true)}>
         <Text style={styles.textStyle}>Show Modal</Text>
       </Pressable>
     </View>

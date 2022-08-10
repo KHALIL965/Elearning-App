@@ -1,11 +1,11 @@
 import React from "react";
 import {View,Text} from 'react-native';
  
-const TAB2=()=>{
+const ActivityTab=()=>{
     return(
         <View>
             <Text>Hello</Text>
         </View>
     )
 }
-export default TAB2;
+export default ActivityTab;
