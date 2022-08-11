@@ -6,7 +6,6 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native';
-
 import CircularProgress from 'react-native-circular-progress-indicator';
 import {TabView, SceneMap} from 'react-native-tab-view';
 import unit from '../res/unit';
@@ -57,9 +56,9 @@ const LearnSubCategory = () => {
               <Text style={style.ctext2}>Test</Text>
             </View>
           </View>
-          <View style={style.text}>
-            <Text style={style.text1}>Completed</Text>
-          </View>
+          <TouchableOpacity onPress={()=>navigation.navigate('Questions')} style={style.text}>
+            <Text  style={style.text1}>Completed</Text>
+          </TouchableOpacity>
         </View>
       </View>
 

@@ -6,14 +6,13 @@ import {
   FlatList,
   TouchableOpacity,
   Image,
+  ScrollView,
+  SafeAreaView
 } from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import {CustomHeaderWhite} from '../components/CustomHeaderWhite';
 import CustomWebView from '../components/CustomWebView';
 import R from '../res/R';
 import {useNavigation} from '@react-navigation/native';
-import {ScrollView} from 'react-native-gesture-handler';
-import {Icon} from 'react-native-elements';
 import {CustomFilter} from '../components/CustomFilter';
 import CustomProgressBar from '../components/CustomProgressBar';
 

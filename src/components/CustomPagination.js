@@ -1,5 +1,5 @@
 import React, { Component, useState } from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native'
+import {View, Text, StyleSheet, TouchableOpacity, Image,Platform, SafeAreaView} from 'react-native'
 import Dots from 'react-native-dots-pagination';
 import R from '../res/R';
 import Content from '../screens/Content';
@@ -65,7 +65,7 @@ const CustomPagination = () => {
      }
 
     return(
-        
+        <SafeAreaView style={styles.container}> 
         <View style={{flex: 1, backgroundColor : R.color.goldenDeep}} >
           <View style = {styles.topContainer}>
             <View style = {{flexDirection : 'row', justifyContent : 'space-between'}}>
@@ -115,10 +115,14 @@ const CustomPagination = () => {
                 </View>
           </View>
        </View>
+       </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({ 
+    container:{
+        flex:1
+    },
     topContainer : {
         height : R.unit.scale(25),
         width : R.unit.scale(190),
@@ -132,8 +136,8 @@ const styles = StyleSheet.create({
     cancel : {
         height : R.unit.scale(10),
         width : R.unit.scale(10),
-        marginRight : R.unit.scale(6),
-        marginTop : R.unit.scale(4),
+        marginRight : Platform.OS == 'ios'? R.unit.scale(8):R.unit.scale(6),
+        marginTop : Platform.OS == 'ios'? R.unit.scale(5): R.unit.scale(4),
     },
     paginationStyle : {
          bottom : R.unit.scale(3)
