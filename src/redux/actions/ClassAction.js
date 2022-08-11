@@ -17,9 +17,11 @@ export default function classSubject(onResponse, classData) {
         dispatch(classSuccess(res));
         console.log("Response in Action>>>>",res)
         onResponse.success(res);
+        console.log('Response...',res)
       } else {
         dispatch(classFailure(res));
         onResponse.error(res);
+        console.log('Response...',res)
       }
     });
   };

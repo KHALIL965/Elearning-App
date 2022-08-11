@@ -45,7 +45,9 @@ const ScoreCard = () => {
                     <Text style={styles.divider}></Text>
                     <CustomScoreCard />
                     <Text style={styles.reattempt}>Do you wish to Re-attempt?</Text>
-                    <TouchableOpacity style={{ height: R.unit.scale(35), marginTop: R.unit.scale(8) }}>
+                    <TouchableOpacity 
+                    onPress={()=>navigation.navigate('CustomPagination')}
+                    style={{ height: R.unit.scale(35), marginTop: R.unit.scale(8) }}>
                         <Text style={styles.button}>RE-ATTEMPT</Text>
                     </TouchableOpacity>                                  
                 </View>

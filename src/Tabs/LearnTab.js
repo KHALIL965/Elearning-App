@@ -191,7 +191,9 @@ const LrnTab = () => {
           >
           <Text style={{color:R.color.offWhite}}>{optionIndex}</Text>
           </View>
-          <TouchableOpacity onPress={() => navigation.navigate("Learn")}>
+          <TouchableOpacity
+          //  onPress={() => navigation.navigate("CustomPagination")}
+           >
           <Text  style={styles.productText}>
                   {optionItem.subCategoryTile}
                 </Text>

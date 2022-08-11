@@ -11,6 +11,7 @@ import LearnSubCategory from '../screens/LearnSubCategory';
 import LrnTab from '../Tabs/LearnTab';
 import TAB1 from '../Tabs/TestTab';
 import BookMarks from '../screens/BookMarks';
+import CustomPagination from '../components/CustomPagination';
 
 
 const RootNavigator = createNativeStackNavigator();
@@ -63,6 +64,11 @@ export function RootStackNavigator() {
         component={Popup}
       />
       
+
+    <RootNavigator.Screen
+        name="CustomPagination"
+        component={CustomPagination}
+      />
     </RootNavigator.Navigator>
   );
 }
